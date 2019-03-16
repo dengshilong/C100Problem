@@ -24,7 +24,7 @@
 
 说明: 与问题1.1一样，需要特别注意数组f[]与g[]已经排序。如果问题1.1能够做出完美的解答，那么本题也不难，相似的方法就可以得到高效率的程序。
 
-解答见[GTCount.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/GTCount.java)
+利用数组已经排好序的这个特性，可以写出高效的程序. 解答见[GTCount.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/GTCount.java)
 
 
 ## 1.3 等值数目(EQCount)
@@ -44,7 +44,7 @@
 
 做完这一题后，建议继续作下一题。
 
-解答见[EQCount.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/EQCount.java)
+依然是利用已经排好序的这个特性。解答见[EQCount.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/EQCount.java)
 
 ## 1.4 两数组最短距离(MinDist)
 已知两个元素从小到大排列的数组x[]与y[],请编写一个程序算出两个数组元素彼此之间差的绝对值最小的一个树，此值称为数组的距离。
@@ -68,7 +68,7 @@
 
 当然，也可以用上面的方法把前置和与后置和都算出来(两者都是从小到大的递增序列, 为什么?), 再进行比较, 但建议不要使用这种方法, 因为它需要额外的内存。
 
-解答见[HeadTail.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/HeadTail.java)
+可以用变量prefix来表示前置和，用suffix来表示后置和，用i表示前置和累加元素的位置，i从前往后加，用j表示后置和累加元素的位置, j从后往前加。当prefix > suffix时，累加后置和，也就是j向前走；当prefix < suffix时，累加前置和，也就是i往后走；当prefix == suffix时，同时累加前置和与后置和，也就是i往后走，j往前走. 解答见[HeadTail.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/HeadTail.java)
 
 # chapter2
 ## 2.7 数组自乘递归解(RecursionPower)
