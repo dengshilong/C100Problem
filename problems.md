@@ -46,12 +46,12 @@
 
 解答见[EQCount.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/EQCount.java)
 
-## 两数组最短距离(MinDist)
+## 1.4 两数组最短距离(MinDist)
 已知两个元素从小到大排列的数组x[]与y[],请编写一个程序算出两个数组元素彼此之间差的绝对值最小的一个树，此值称为数组的距离。
 
 说明： 如果x[i]与y[i]是两个元素，那么 |x[i] - y[i]| 就是这两个元素之间的距离，所有这些距离的最小值，称为数组的距离。比如说x[]有1，3，5，7，9， y[]有2，6，8，那么最短距离就是1，因为x[0]与y[0]、 x[1]与y[0]、x[2]与y[1]、x[3]与y[1]、还有x[4]与y[2]的距离都是1。
 
-依然是利用数组已经排好序的特性。
+依然是利用数组已经排好序的特性。解答见[MinDist.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/MinDist.java)
 
 ## 等值首尾和(HeadTail)
 假设有一个数组x[ ], 它有n个元素，每一个都大于零，称x[0] + x[1] + … + x[i]为前置和(Prefix Sum),而 x[j] + x[j + 1] + … + x[n - 1]为后置和(Suffix Sum)。试编写一个程序，求出x[ ] 中有多少组相同的前置和与后置和。
