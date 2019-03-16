@@ -55,7 +55,7 @@
 
 依然是利用数组已经排好序的特性。解答见[MinDist.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/MinDist.java)
 
-## 等值首尾和(HeadTail)
+## 1.5 等值首尾和(HeadTail)
 假设有一个数组x[ ], 它有n个元素，每一个都大于零，称x[0] + x[1] + … + x[i]为前置和(Prefix Sum),而 x[j] + x[j + 1] + … + x[n - 1]为后置和(Suffix Sum)。试编写一个程序，求出x[ ] 中有多少组相同的前置和与后置和。
 
 说明: 如果x[ ] 的元素是3，6，2，1，4，5，2，则x[ ]的前置和有一下7个，即3，9，11，12，16，21，23；后置和则是2，7，11，12，14，20，23；于是11，12，与23这3对就是值相同的前置和与后置和，因为：
@@ -65,6 +65,10 @@
 >12 = 3 + 6 + 2 + 1(前置和) = 2 + 5 + 4 + 1 (后置和)
 
 因为23是整个数组元素的和，因此前置和与后置和一定相同。
+
+当然，也可以用上面的方法把前置和与后置和都算出来(两者都是从小到大的递增序列, 为什么?), 再进行比较, 但建议不要使用这种方法, 因为它需要额外的内存。
+
+解答见[HeadTail.java](https://github.com/dengshilong/C100Problem/blob/master/src/chapter1/HeadTail.java)
 
 # chapter2
 ## 2.7 数组自乘递归解(RecursionPower)
