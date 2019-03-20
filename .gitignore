@@ -4,3 +4,7 @@ out
 
 #MacDown
 .DS_Store
+
+.pyc
+
+

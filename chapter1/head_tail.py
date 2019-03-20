@@ -6,7 +6,6 @@
 当prefix > suffix时，累加后置和，也就是j向前走；
 当prefix < suffix时，累加前置和，也就是i往后走；
 当prefix == suffix时，同时累加前置和与后置和，也就是i往后走，j往前走
-public class HeadTail {
 """
 
 def head_tail(nums):
