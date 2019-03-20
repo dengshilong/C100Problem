@@ -26,6 +26,5 @@ def prime_one(n):
     return primes
 
 
-
 if __name__ == "__main__":
-    print(prime_one(40))
+    print(prime_one(200))
