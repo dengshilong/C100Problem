@@ -5,8 +5,8 @@ import math
 def _is_prime(n, primes):
     if n % 2 == 0 or n % 3 == 0:
         return False
+    s = int(math.sqrt(n)) + 1
     for p in primes:
-        s = int(math.sqrt(n)) + 1
         if p > s:
             break
         if n % p == 0:
