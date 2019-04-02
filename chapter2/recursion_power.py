@@ -4,10 +4,11 @@
 def recursion_power(m, n):
     if n == 0:
         return 1
-    if n & 1 == 1:  # n 是奇数
+    if n & 1:  # n 是奇数
         return m * recursion_power(m, n - 1)
     else:
-        return recursion_power(m, n >> 1) ** 2
+        temp = recursion_power(m, n >> 1)
+        return temp * temp
 
 
 if __name__ == "__main__":
