@@ -9,6 +9,9 @@ def sieve(n):
     while i * 2 <= n:
         if primes[i]:
             primes[i * 2:n + 1:i] = [False] * (int((n - i * 2) / i) + 1)
+            # 等同于如下句子，但是更快
+            # for j in range(i * 2, n + 1, i):
+            #     primes[j] = False
         i += 1
     return [i for i in range(n + 1) if primes[i]]
 
