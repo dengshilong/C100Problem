@@ -151,9 +151,9 @@
 2. 注意到x ^ 4可以用x ^ 2自乘的关系，由此可以大量地降低乘法数目
 3. 连乘n次要n - 1个乘法，能做到只要2log(n)个乘法吗？
 
-解答见[recursion_power](https://github.com/dengshilong/C100Problem/blob/master/chapter2/recursion_power.py)
+解答见[recursion_power.py](https://github.com/dengshilong/C100Problem/blob/master/chapter2/recursion_power.py)
 
-## 2.8 数值自乘非递归解( Iteration_Power)
+## 2.8 数值自乘非递归解( IterationPower)
 继续求m ^ n 问题(m与n是正整数)。前面的数值自乘递归解会得到一个递归的程序,请编制一个运算效率同样高的非递归的程序。
 
 说明: 或许读者有自己独特的看法, 但在此提供一个简单的建议, 可以采用它来编写程序, 当然也可以把它化简。建议是把指数n用二进制来看, 比如若n=13, 那么13(10进制)=1101(2进制)=2 ^ 3 + 2 ^ 1 + 2 ^ 0, 所以求m ^ (2 ^ 3 + 2 ^ 1 + 2 ^ 0)时就相当于求m ^ (2 ^ 3) * m ^ (2 ^ 2) * m ^ (2 ^ 0);会发现二进制表示中对应那一位是1, 在m中就有那么一项。把这个观念编制成程序。
@@ -162,8 +162,22 @@
 
 了解了这些观点之后,编写这个程序就不难了。在编写完程序之后,还应该分析一下程序乘了多少次。
 
-解答见［iteration_power](https://github.com/dengshilong/C100Problem/blob/master/chapter2/iteration_power.py)
+解答见［iteration_power.py](https://github.com/dengshilong/C100Problem/blob/master/chapter2/iteration_power.py)
 
+## 2.9 Fibonacci数非递归解(IterationFibonacci)
+Fibonacci数列f(1),f(2),...,f(n)的定义是:
+
+1. f(n) = 1 当 n = 1或n = 2时
+2. f(n) = f(n-1) + f(n-2) 当n > 2时
+
+不用递归的方法, 也不用数组, 编写一个函数, 它接收n的值, 返回f(n)。
+
+说明: 用递归方法算 Fibonacci数列效率是很低的, 要计算很多个重复的加法, 这个题目要求不用递归, 不用数组, 把f(n)求出来。 不过应注意下面的事项:
+
+1. 递归方式并非全然不好,但不能直接套用公式。
+2. 因为当n > 2时,f(n) = f(n-1) + f(n-2),所以程序只保留f(n-1)与f(n-2)就可以算出f(n)。
+
+解答见[iteration_fibonacci.py](https://github.com/dengshilong/C100Problem/blob/master/chapter2/iteration_fibonacci.py)
 
 
 # chapter3
