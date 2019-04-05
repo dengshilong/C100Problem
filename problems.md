@@ -179,6 +179,27 @@ Fibonacci数列f(1),f(2),...,f(n)的定义是:
 
 解答见[iteration_fibonacci.py](https://github.com/dengshilong/C100Problem/blob/master/chapter2/iteration_fibonacci.py)
 
+## 2.10 快速Fibonacci数算法(FastFibonacci)
+
+继续讨论Fibonacci 数列问题。在非递归的Fibonacci 程序中，在算f(n)时最多不超过n - 2个加法, 编写一个速度更快的程序，或许可以用乘法。如果每一个乘法用m单位时间, 每一个加法用p单位时间，于是非递归的写法因为最多有n - 2个加法，因此最多用(n-2)p时间。请问，改善的程序要用多少时间？假设只考虑加法与乘法而已。
+
+说明: 解决这个问题的技巧不少，在此先提示一个很容易理解的方法。用矩阵来算，看下面的式子:
+
+(f(n), f(n-1)) = ((1, 1), (1, 0)) * (f(n-1)), f(n-2)), n > 2
+相信不难看出这个式子是对的，其实这只不过是把: f(n) = f(n-1) + f(n-2), f(n-1) = f(n-1)写成矩阵的形式而已。
+
+将上式展开:
+(f(n-1),f(n-2)) = ((1, 1), (1, 0))*(((1, 1), (1, 0)) * (f(n-2), f(n-3))) = ((1, 1), (1, 0)) ^ 2  * (f(n-2), f(n-3))
+
+一般而言，有:
+(f(n), f(n-1)) = ((1, 1),(1,0)) ^ i * (f(n-i), f(n-i-1))
+继续展开会得到:
+(f(n), f(n-1))=((1,1),(1,0))^(n-2) * (f(2), f(1)) = ((1,1),(1,0))^(n-2) * (1, 1)
+
+可以用这个观点来编写程序。
+
+解答见[iteration_fibonacci.py](https://github.com/dengshilong/C100Problem/blob/master/chapter2/fast_fibonacci.py)
+
 
 # chapter3
 ## 3.8 整数的所有不同分割数目(IntPartition)

@@ -10,6 +10,7 @@ def iteration_power(m, n):
         m = m * m
     return p
 
+
 def iteration_power_two(m, n):
     p = 1
     while n >= 1:
@@ -20,6 +21,7 @@ def iteration_power_two(m, n):
             m = m * m
             n = n >> 1
     return p
+
 
 if __name__ == "__main__":
     for i in range(1, 10):
