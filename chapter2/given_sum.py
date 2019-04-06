@@ -24,11 +24,9 @@ def given_sum(n):
         if s > n:
             s -= i
             i += 1
-        elif s < n:
-            j += 1
-            s += j
         else:
-            result.append((i, j))
+            if s == n:
+                result.append((i, j))
             j += 1
             s += j
     return result
