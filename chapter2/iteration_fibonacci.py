@@ -2,7 +2,7 @@
 
 
 def iteration_fibonacci(n):
-    if n == 1 or n == 2:
+    if n <= 2:
         return 1
     a = 1
     b = 1
@@ -14,6 +14,7 @@ def iteration_fibonacci(n):
         # b = t
         n -= 1
     return b
+
 
 if __name__ == "__main__":
     for i in range(1, 10):
