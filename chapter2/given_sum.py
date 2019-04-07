@@ -1,7 +1,6 @@
 # coding: utf-8
 
 
-
 def bad_given_sum(n):
     result = []
     mid = int(n / 2)
