@@ -252,12 +252,14 @@ def bad_given_sum(n):
 
 # chapter3
 
-## 3.1列出所有子集(DIRECT)
+## 3.1 列出所有子集(DIRECT)
 
 编写一个程序,列出{1, 2, 3, … , n}这个集合的所有子集, 包括空集合.
 
 说明: 列出一个集合的所有子集有很多做法,题目中并没有要求依某个特定的次序来排列,
 因此是不难做出来的。 因为集合中一共有n个元素,所以总共就会有2 ^ n 个子集; 例如{1, 2, 3} 有如下子集: {} {1} {2} {3} {1, 2} {1, 3} {2, 3} {1, 2, 3}
+
+解答见[direct.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/direct.py)
 
 ## 3.5 产生所有排列字典顺序(RecursionPermutation)
 若编写一个程序,用字典顺序列出n个元素的所有排列(Permutation)
@@ -303,7 +305,7 @@ def bad_given_sum(n):
 解答见[recursion_permutation.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/recursion_permutation.py)
 
 
-## 3.8 整数的所有不同分割数目(IntPartition)
+## 3.8 整数的所有不同分割数目(IntegerPartition)
 所谓的整数的分割(Partition of an Integer), 指的就是把一个正整数写成若干个正整数的和，但这里只计较有多少种分割方式，而不计较它的内容。例如，4=3+1,2+2,2+1+1,1+1+1+1+1, 再加上自己，就一共有5种分割方式。编写一个程序，输入一个正整数，输出它有多少种分割方式。
 
 说明: 以下是几点重要的提示
@@ -311,6 +313,8 @@ def bad_given_sum(n):
 1. 要把n进行分割，其实不完全只针对n, 还要看分割中最大的值是什么。例如，要把10进行分割，若在分割中最大的值是6，即10=6+..., 那么"..."的部分充其量的值是4而已，不仅如此，和还须等于4；因此，如果知道"...", 即4有多少种分割方式，也正是在分割10时，最大值为6的分割方式！
 2. 应该分析一下n这个输入值，与在分割中的极大值(如1.中的6)之间有什么联系，找出来，问题就解决了。
 3. 不要忘了，递归是非常有效的武器
+
+解答见[integer_partition.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/integer_partition.py)
 
 ## 3.9 整数的分割方式(IntPartitionII)
 
