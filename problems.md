@@ -316,7 +316,7 @@ def bad_given_sum(n):
 
 解答见[integer_partition.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/integer_partition.py)
 
-## 3.9 整数的分割方式(IntPartitionII)
+## 3.9 整数的分割方式(IntegerPartitionII)
 
 对于一个正整数n而言，它的一个分割(Partition),就是把n写成若干个正整数的和，但不计较书写的顺序。编写一个程序，输入n，把n的所有分割显示出来。
 说明: 如果n=7, 那么有如下的分割.
@@ -345,3 +345,5 @@ def bad_given_sum(n):
 > 1 1 1 1 1 1 1
 
 一共有12个，仔细观察在各个输出中前后两者的差异，并且自己做一做其他的结果(比如n=5时有7个，n = 6时有11个等),就不难写出程序了。
+
+解答见[integer_partition_method.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/integer_partition_method.py)
