@@ -333,17 +333,23 @@ def bad_given_sum(n):
 > 4 2 1
 > 
 > 4 1 1 1
+
+> 3 3 1
 > 
 > 3 2 2
 > 
 > 3 2 1 1
-> 
+>
 > 3 1 1 1 1 
-> 
+>
+> 2 2 2 1
+>
+> 2 2 1 1 1 
+>
 > 2 1 1 1 1 1 
 > 
 > 1 1 1 1 1 1 1
 
-一共有12个，仔细观察在各个输出中前后两者的差异，并且自己做一做其他的结果(比如n=5时有7个，n = 6时有11个等),就不难写出程序了。
+一共有15个，仔细观察在各个输出中前后两者的差异，并且自己做一做其他的结果(比如n=5时有7个，n = 6时有11个等),就不难写出程序了。
 
 解答见[integer_partition_method.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/integer_partition_method.py)
