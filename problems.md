@@ -355,7 +355,7 @@ def bad_given_sum(n):
 解答见[integer_partition_method.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/integer_partition_method.py)
 
 
-## 4.1 寻找脚码( IndexSearch)
+## 4.1 寻找脚码(IndexSearch)
 已知一个整数数组x[], 其中的元素彼此都不相同,而且也已经从小到大排列好,请用
 比较大小、相等的方式编写一个程序, 找出给定的数组中是否存在一个元素满足x[i] = i的关
 系。举例而言, 如果x[]={-2,-1,3,7,8}, x[3] = 3, 因此 3 就是答案, 因为编程语言中数组是从0开始的，所以最终是检测是否存在一个元素满足x[i] = i + 1.
@@ -380,5 +380,15 @@ if __name__ == "__main__":
 素已经排列好的条件. 事实上, 如果输入有n个元素, 应该可以写出与log(n)次成正比的比较的程序,关键是x[]的元素是排好顺序的。
 
 解答见[index_search.py](https://github.com/dengshilong/C100Problem/blob/master/chapter4/index_search.py)
+
+## 4.9 查找矩阵(MatrixSearch)
+已知一个n列n行的矩阵M,它的元素满足一个很特殊的性质, 即任一元素M[i][j]都小
+于在它右边与下方的元素(如果存在的话), 换言之,M[i][j] < M[i][j+1]且M[i][j] < M[i+1][j]. 现在有一个值K, 编写一个程序, 检查矩阵M中是否有K。
+
+说明: 这个矩阵有了一种很特殊的结构, 换言之, 每一列与每一行都从小到大排列, 所以
+做寻找的工作时就可以通过这个特殊的顺序来编写程序。注意, 虽然有n ^ 2个元素, 但理论上可以证明, 在最坏的情况下, 2n - 1就可以决定K在不在M中; 关键所在, 就是如何模仿二分查找法的技巧在一次比较之后就尽可能去掉多余的元素.
+
+解答见[matrix_search.py](https://github.com/dengshilong/C100Problem/blob/master/chapter4/matrix_search.py)
+
 
 
