@@ -1,3 +1,6 @@
+# coding: utf-8
+
+
 def matrix_search(m, k):
     n = len(m)
     i = 0
