@@ -411,6 +411,8 @@ if __name__ == "__main__":
 
 其实这个题目并不难, 把数组从头到尾查一次就可以做出结果, 那3个繁琐的条件, 不过是防止去用排序或“不够快”的方法来解题而已。
 
+解答见[three_flag.py](https://github.com/dengshilong/C100Problem/blob/master/chapter7/three_flag.py)
+
 
 ## 7.12 产生匹配括号的字符串(GenerateParenthesis)
 请写一个程序, 输入一个正整数的值, 然后列出所有由n个左括号与n个右括号正确成的字符串; 当然, 正确的左, 右括号一定个数一样多, 所以输入的值要是个偶数
