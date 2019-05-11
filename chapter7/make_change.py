@@ -12,7 +12,7 @@ def make_change(n, a):
     return dp[n]
 
 
-def find_make_change(n, a):
+def make_change_method(n, a):
     """n为零钱, a为钞票面额, 找零钱使用钞票数量最少的一种方法"""
     dp = [n] * (n + 1)
     dp[0] = 0
@@ -35,4 +35,4 @@ if __name__ == "__main__":
     n = 20
     a = [1, 2, 3, 4]
     for i in range(1, n + 1):
-        print(i, make_change(i, a), find_make_change(i, a))
+        print(i, make_change(i, a), make_change_method(i, a))
