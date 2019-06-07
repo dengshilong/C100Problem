@@ -261,6 +261,41 @@ def bad_given_sum(n):
 
 解答见[direct.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/direct.py)
 
+## 3.3 产生Gray码(GrayCode)
+编写一个程序, 用Gray码(Gray Code)的顺序列出一个集合的所有子集。
+说明: 这个问题其实是在看有没有办法把Gray(人名)码用程序编写出来, 有了Gray码，找出对应的集合是件简单的事。
+
+什么是Gray码? nbit的Gray码是一连串共有2 ** n 个元素的数列, 每一个元素都有能nbit, 而且任何相邻的两个元素之间只有1的值不同, 例如,3个bit的Gray码:
+
+> 000 001 011 010 110 111 101 100
+
+是一组Gray码, 任何相邻两个元素都只有1bit值不同。但是，Gray码却并不是惟一的，把它循环排列或是用反过来的顺序写,也会得到一组Gray码; 比如说, 如果把最后3个素放到最前面去, 就会得到
+
+> 111 101 100 000 001 011 010 110
+
+也是一组Gray码。
+
+产生Gray码的方法很多，这里这介绍其中一种。
+将2bit Gray码列出
+00
+01
+11
+10
+将3bit Gray码列出
+000
+001
+011
+010
+110
+111
+101
+100
+观察3bit Gray码可以发现，它可以由2bit Gray码来得到。
+
+解答见[gray_code.py](https://github.com/dengshilong/C100Problem/blob/master/chapter3/gray_code.py)
+
+
+
 ## 3.5 产生所有排列字典顺序(RecursionPermutation)
 若编写一个程序,用字典顺序列出n个元素的所有排列(Permutation)
 
@@ -396,6 +431,28 @@ if __name__ == "__main__":
 
 解答见[matrix_search.py](https://github.com/dengshilong/C100Problem/blob/master/chapter4/matrix_search.py)
 
+## 6.9 最长公共子序列(LongestCommonSubsequence)
+如果A=a[1]a[2]...a[m]是一个长度为m的字符串, 把其中的若干(可能是0个, 也可能是n)个符号去掉, 而得到一个新字符串, 这个新字符串就称为A的子序列(Subsequence). 例如, 若A=ab0123, 那么b02, abcl23, b3, c, ab0123, ab12等都是A的部分序列.
+
+假设给出两个字符串A与B, 长度分别是m与n, 那么A与B就含有若干共同的子序列, 至少虚字符串(或说是空字符串)就是一个共同部分序列; 所谓C是A与B的公共子序列, 指的是C是A的子序列, C也是B的子序列。编写一个程序,把A与B的公共子序列中最长的那一个找出来。
+
+这个同题一般都称为最长公共子序列(Longest Common Subsequence)问题, 简称为LCS
+
+说明: 这是一个非常有名的题目, 而且是一个分支中的主要问题, 这个分支称为字符串匹配(String Matching), 可以说是计算机科学研究领域中比较早开发的科目, 目前的应用很广, 从语音分析到生化都能看到这一支的踪迹, 参看下面参考文献中各篇文章的介绍. 写程序的熟手或了解算法理论的朋友是不难写这个程序的, 因为它不过是一个动态规划(Dynamic Programming)的应用而已。给一点提示, 如果两个字符串是A=a[1]a[2]…a[m], B=b[1]b[2]...b[n],考虑a[i]与b[j]
+ 
+如果在a[1]a[2]…a[i-1]与b[1]b[2]…b[j-1]这两个字符串的前段中已经找到了一个长度是k的公共子序列, 那么会有两种可能:
+
+1. 如果a[i] = b[j], 于是把原来长度为k的共同部分序列后面补上a[i](或b[j], 哪一个无所谓, 因为两者相同), 就会得到a[1]a[2]…a[i]与b[1]b[2]…b[j]的一个长度是k+1的公共子序列
+2. 如果a[i] != b[j],分成两种情况讨论: 第一, 检查a[1]a[2]...a[i-1]与b[1]…b[j-1]b[j]的最长公共子序列的长度; 第二, 检查a[1]…a[i-1]a[i]与b[1]b[2]...b[j-1]的最长共同部分序列的长度。最后进行适当的处理。
+
+有了这个观点在心中, 找出最长公共子序列应该不会十分困难, 但是要如何把那个序列找出来呢? 这或许要好好想一想。
+
+下面推荐的这本书是论文集有许许多与编修字符串方面的文章可供参考, 自然也包含有最长共同序列这个问题:此外,书中还有不少这些方面的应用与说明。
+
+R.A. Wagner and M.J. Fischer. The String-to-String Correction Problem, Joumal of ACM。Vol.21(1974) p168~173
+
+解答见[longest_common_subsequence.py](https://github.com/dengshilong/C100Problem/blob/master/chapter6/longest_common_subsequence.py)
+
 ## 7.2 三色旗问题(ThreeFlag)
 假设有一个数组, 它有n个元素,每一个不外乎是红、白、蓝3种颜色之一的代号, 就说是R, W, B好了。这些元素在数组中并没有依同样颜色的元素排在一起的方式来排列, 请写一个程序把这些元素排成所有蓝色在前, 然后是白色, 最后是红色的排列方式, 不过在写程序时要满足下面的条件
 
@@ -435,7 +492,7 @@ a1 < a2 < … < ak· 现在手上有n, 请问要如何把n兑换成a1, a2, a3, �
 解答见[generate_parenthesis.py](https://github.com/dengshilong/C100Problem/blob/master/chapter7/generate_parenthesis.py)
 
 ## 8.5 N后问题递归解(NQueen)
-8后问题(Eight Queen Problem)是指在一个8x8的西洋棋盘上要如何放置8个皇后棋, 且不会互相吃到对方; 皇后棋可以吃掉任何它所在的那一列、那一行, 以及那两条对角线(米字型)上的任何棋子。请写一个程序, 读入一个值n表示棋盘的大小, 然后求出n * n格棋盘上放n个皇后棋且不会相互吃掉对方的所有解答。
+8后问题(Eight Queen Problem)是指在一个8 * 8的西洋棋盘上要如何放置8个皇后棋, 且不会互相吃到对方; 皇后棋可以吃掉任何它所在的那一列、那一行, 以及那两条对角线(米字型)上的任何棋子。请写一个程序, 读入一个值n表示棋盘的大小, 然后求出n * n格棋盘上放n个皇后棋且不会相互吃掉对方的所有解答。
 
 说明: 这是广义的N后问题, 因为所要求的是“所有”解答, 而不单是其中的一组, 对大多数会运用递归的人来说,这个题目反而容易做些。这一类型题目的解法通常要用到回溯(Backtrack)的技巧, 不管用递归还是不用递归都是如此, 虽然会浪费时间,但多半会找到解答。
 
@@ -455,6 +512,36 @@ S = 目前可以用得到的位置;
 ```
 
 解答见[n_queen.py](https://github.com/dengshilong/C100Problem/blob/master/chapter8/n_queen.py)
+
+## 8.9 非递归汉诺塔(HanoiTower)
+汉诺塔(Towers of Hanoi)是一个在入门书籍中常见的例题或习题, 它是说: 有3根柱子, 1、2与3,在柱子1上串了从上到下编号是1, 2, …, m的圆片, 号码小的圆片包小. 问题是, 请写一个程序,把柱子1上的圆片搬到柱子3去。在搬的时候有3个要求:第一, 每次只能搬一个圆片; 第二, 要搬的圆片得从某个柱子取出, 并且放到另一根柱子上; 第三,任何时刻、任何柱子上的圆片, 从上到下都是从小到大排列。书上的解法都是递归的, 请写一个非递归且不用堆栈来仿真的程序.
+
+说明: 如果用教科书中的解法, 那么递归是个非常好且效率非常高的技巧, 程序大致如程下
+
+```
+#coding: utf-8
+
+def hanoi_tower(n):
+    return _hanoi_tower(n, 1, 2, 3)
+
+
+def _hanoi_tower(n, start, mid, end):
+    if n == 1:
+        print("Move disk %d from %d to %d" % (n, start, end))
+    else:
+        _hanoi_tower(n - 1, start, end, mid)
+        print("Move disk %d from %d to %d" % (n, start, end))
+        _hanoi_tower(n - 1, mid, start, end)
+
+
+if __name__ == "__main__":
+    hanoi_tower(3)
+```
+
+这个观点是, 先把在start柱子上的n-1个圆片搬到mid柱子上去(用end柱子作中继站), 于是在strt柱子上就留下3在最下方, 也就是最大的一个圆片, 即第n号, 把它从start搬到end去(见print); 现在的情况是, 最大的已经到了目的地, 但在上方的第1 ~ n－1号还停留在mid柱子上; 第三步就是把mid上的n-1个圆片搬到end柱子上, 用start柱作中继站。当然, start、mid、end就是题目中的3根柱子, n是要搬的圆片数目.
+
+递归的解不但漂亮, 而且容易懂; 不过了解了递归解法之后产能够由它而发展出一个非递归的解吗? 当然, 用堆栈来仿真并不是所期望的, 应该把递归动作中在什么时候搬那个圆片, 从何处搬到何处这一层关系弄清楚, 那么问题就不难了。
+
 
 ## 9.6 最大连续元素和(MaximuConsecutiveSum)
 已知数组x[]储存了一组整数, 请写一个程序, 找出在数组中连续元素的和中最大的一个。举例而言, 如果有数组[1, 2, -6, 3, -2, 4, -1, 3, 2, -4], 那么连续的元素的和有1 + 2 = 3, 1 + 2 + (-6) = 3, 2 + (-6) = 4, ..., 但值最大的就是3 + (-2) + 4 +(-1) + 3 + 2这一段, 值为9. 规定: 和为负值时就定成0, 所以结果永远不为负。这个题目通常叫做最大连续元素和(Maximum Consecutive Sum)问题
