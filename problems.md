@@ -432,11 +432,11 @@ if __name__ == "__main__":
 解答见[matrix_search.py](https://github.com/dengshilong/C100Problem/blob/master/chapter4/matrix_search.py)
 
 ## 6.9 最长公共子序列(LongestCommonSubsequence)
-如果A=a[1]a[2]...a[m]是一个长度为m的字符串, 把其中的若干(可能是0个, 也可能是n)个符号去掉, 而得到一个新字符串, 这个新字符串就称为A的子序列(Subsequence). 例如, 若A=ab0123, 那么b02, abcl23, b3, c, ab0123, ab12等都是A的部分序列.
+如果A=a[1]a[2]...a[m]是一个长度为m的字符串, 把其中的若干(可能是0个, 也可能是n)个符号去掉, 而得到一个新字符串, 这个新字符串就称为A的子序列(Subsequence). 例如, 若A=abc0123, 那么b02, abc123, b3, c, ab0123, ab12等都是A的部分序列.
 
 假设给出两个字符串A与B, 长度分别是m与n, 那么A与B就含有若干共同的子序列, 至少虚字符串(或说是空字符串)就是一个共同部分序列; 所谓C是A与B的公共子序列, 指的是C是A的子序列, C也是B的子序列。编写一个程序,把A与B的公共子序列中最长的那一个找出来。
 
-这个同题一般都称为最长公共子序列(Longest Common Subsequence)问题, 简称为LCS
+这个问题一般都称为最长公共子序列(Longest Common Subsequence)问题, 简称为LCS
 
 说明: 这是一个非常有名的题目, 而且是一个分支中的主要问题, 这个分支称为字符串匹配(String Matching), 可以说是计算机科学研究领域中比较早开发的科目, 目前的应用很广, 从语音分析到生化都能看到这一支的踪迹, 参看下面参考文献中各篇文章的介绍. 写程序的熟手或了解算法理论的朋友是不难写这个程序的, 因为它不过是一个动态规划(Dynamic Programming)的应用而已。给一点提示, 如果两个字符串是A=a[1]a[2]…a[m], B=b[1]b[2]...b[n],考虑a[i]与b[j]
  
@@ -452,6 +452,23 @@ if __name__ == "__main__":
 R.A. Wagner and M.J. Fischer. The String-to-String Correction Problem, Joumal of ACM。Vol.21(1974) p168~173
 
 解答见[longest_common_subsequence.py](https://github.com/dengshilong/C100Problem/blob/master/chapter6/longest_common_subsequence.py)
+
+## 6.10 字符串编修(StringEdit)
+已知两个字符串s与t, 要研究如何把字符串s经由一连串编修动作变成t。能够使用的就是插入一个符号, 以及删除一个符号; 把某个符号换成另一个, 就可以通过先把它删除再在原地插入所需的符号来完成。编写一个程序, 接收s与t, 找出如何才能够在最少步骤之下把s改成t。
+
+说明: 把一个字符串修改成第一个字符串在语汇分析(Lexical Analysis)与拼字分析(Spelling Check)中有很重要的地位。例如, 已知s这个字符串可能有问题, 而在s中应该会出现t[1],t[2]…t[k], 这几个字符串其中之一, 但是用哪一个比较好呢? 通常会选使用最
+少修动而能够把s改出来的那一个, 这一项技巧在化学中研究分子结构相当有用.
+
+如果已知ABCD这个字符串,想把它改成XBYD,一看就知道可以把A换成X, C成Y就行了, 这就有了4个动作一删除A, 插入X,  删除C, 插入Y; 但也可以把ABCD全部删除,再插入XBYD, 这就要8个动作, 4个删除, 4个插入。当然, 两者相比, 自然是第一个方法好些。这是一个简单的例子, 但当s与t这两个字符串很长时就不那么容易看出结果了, 因此这个题目就是要求编写这样的一个程序.
+
+前面的最长部分序列(Longest Common Sequence)的技巧对本题非常有帮助, 不妨先看看LCS这个程序
+
+a[1]a[2]...a[i]与b[1]b[2]...b[j]相互变换可以分为以下几种情况
+
+1. 如果a[i] = b[j], 于是a[1][2]...a[i]变成b[1]b[2]...b[j]的次数等于a[1]a[2]...a[i-1]变成b[1]b[2]...b[j-1]的次数
+2. 如果a[i] != b[j], 分成三种情况讨论: 第一, 检查a[1]a[2]...a[i]变成b[1]…b[j-1]后，再插入一个b[j]; 第二, 检查a[1]…a[i-1]变成b[1]b[2]...b[j]后再插入一个a[i]; 第三: a[1]...a[i-1]变成b[1]b[2]...b[j-1]后，删除a[i], 插入b[j]
+
+解答见[string_edit.py](https://github.com/dengshilong/C100Problem/blob/master/chapter6/string_edit.py)
 
 ## 7.2 三色旗问题(ThreeFlag)
 假设有一个数组, 它有n个元素,每一个不外乎是红、白、蓝3种颜色之一的代号, 就说是R, W, B好了。这些元素在数组中并没有依同样颜色的元素排在一起的方式来排列, 请写一个程序把这些元素排成所有蓝色在前, 然后是白色, 最后是红色的排列方式, 不过在写程序时要满足下面的条件
