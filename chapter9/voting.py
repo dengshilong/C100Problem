@@ -2,6 +2,7 @@
 
 
 def voting(a):
+    """返回投票过半数的人，为0时代表不存在这样的人"""
     m = 0
     count = 0
     for i in range(len(a)):
