@@ -588,6 +588,14 @@ def bad_method(x):
 这是一个大家都会想到的想法, 但事实上, 排大小的这一步是不必要的, 能开发出这样的程序吗? 不过要记住一点, 不能对候选人的数目作任何假设, 因为如果假定候选人是1, 2, …, k, 那么这个题目就简单至极而不会变成名题了。为什么呢? 准备一个有k个元素的
 数组, 然后……(一定马上就知道是怎么回事了吧!)。
 
+参考文献: 这个题目起源于容错(Fault Tolerant)计算机系统中的一个问题, 是在1981年由 J. Moore(发现匹配字符串的 Boyer-Moore方法的那一个More)提出来的。1982年, J Misra与 David Gies两人合写了一篇深入探讨程序写作的文章, 同年 M.J.Fischer与S. L Salzberg提出了个比此例复杂的方法, 比较1.5n+1次就可以找出结果, 而且还证明了不管用什么办法,比较次数都不可能少于1.5n - 2次。推荐读读上述的文章, 以及所附的文献, 了解问题的来龙去脉。
+
+1. M.J. Fischer and S L Salzberg. Solution to Problem 81-5, Journal of Algorithms, Vol3
+1982),pp.375~379
+2. Misra and D Gries. Finding Repeated Elements, Science of Computer Programming
+Vol2(1982),pp.143~152
+3. J.Moore. Problem 81-5, Journal of Algorithms. Vol 2(1981), Pp 208-209
+
 解答见[voting.py](https://github.com/dengshilong/C100Problem/blob/master/chapter9/voting.py)
 
 ## 9.11 寻找支配元素(Dominator)
@@ -599,6 +607,10 @@ def bad_method(x):
 看起来程序并不难写,因为可以x[1], x[2] …, x[i],…一个接一个查过去; 当查到x[i]时，就查x[i+1], x[i+2]…, 于是第一次找出比x[i]大或相等的元素, 就是x[i]的最靠近右支配元素了。但是这样的做法效率并不高。举例而言, 如果一个数组的元素是从大到小排好的但是最后一个元素是整个数组的极大值(例如,5, 4, 3, 2, 1, 6)。若数组有n个元素, 处理x[0]要比较n-1次, 处理x[1]时比较n-2次, 一般而言, 处理x[i]时要比较n - i次。所以就一共用了(n-1) + (n-2) + … + 3 + 2 + 1 =n (n-1)/2, 差不多是n ** 2次的比较.
 
 因此, 挑战是, 能不能写出比较次数与n成正比的程序?
+
+参考文献: 这个题目与解法来自 Hubert Wagener在1988年的一篇文章。Wagener是用这个观点来决一个计算几何(Computational Geometry)中的重要问题, 不过他的重点是平行式的算法,但是他的文章中两个解法都有。有兴趣的朋友可以参看
+
+H Wagener. Triangulating a Monotone Polygon in Parallel. Computational Geometry and Its Applications, Lecture Notes in Computer Science, No 333, Springer-Verlag. 1988, Pp 136-147
 
 解答见[dominator.py](https://github.com/dengshilong/C100Problem/blob/master/chapter9/dominator.py)
 
