@@ -4,20 +4,17 @@
 def dominator(x):
     s = [0] * len(x)
     top = -1
-    i = 0
-    result = []
-    while i < len(x):
-        if top >= 0 and x[i] >= s[top]:
-            result.append((s[top], x[i]))
+    dom = [-1] * len(x)     # -1代表不存在支配元素
+    for i in range(len(x)):
+        while top >= 0 and x[i] >= x[s[top]]:
+            dom[s[top]] = i
             top -= 1
-        else:
-            top += 1
-            s[top] = x[i]
-            i += 1
-    return result
+        top += 1
+        s[top] = i
+    return dom
 
 
 if __name__ == "__main__":
-    assert dominator([2, 1, 3, 5, 4]) == [(1, 3), (2, 3), (3, 5)]
-    assert dominator([5, 4, 3, 2, 1, 6]) == [(1, 6), (2, 6), (3, 6), (4, 6), (5, 6)]
-    assert dominator([2, 3, 3]) == [(2, 3), (3, 3)]
+    assert dominator([2, 1, 3, 5, 4]) == [2, 2, 3, -1, -1]
+    assert dominator([5, 4, 3, 2, 1, 6]) == [5, 5, 5, 5, 5, -1]
+    assert dominator([2, 3, 3]) == [1, 2, -1]
