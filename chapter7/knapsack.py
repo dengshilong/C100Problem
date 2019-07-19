@@ -7,7 +7,7 @@ def knapasck(a, k):
     dp[0][0] = True
     for i in range(1, n + 1):
         for j in range(k + 1):
-            if dp[i - 1][j]:    # 如果前i - 1个已经得到解，则前i个的解也得到了
+            if dp[i - 1][j]:    # 如果前i - 1个物品已经得到解，则前i个物品的解也得到了
                 dp[i][j] = dp[i - 1][j]
             elif j >= a[i - 1] and dp[i - 1][j - a[i - 1]]:
                 dp[i][j] = a[i - 1]
