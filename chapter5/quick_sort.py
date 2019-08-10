@@ -28,7 +28,7 @@ def _quick_sort(x, left, right):
 if __name__ == "__main__":
     x = [7, 6, 2, 3, 4, 1]
     quick_sort(x)
-    assert x == [1, 2, 3, 4, 7]
+    assert x == [1, 2, 3, 4, 6, 7]
     x = [7, 6, 5, 4]
     quick_sort(x)
     assert x == [4, 5, 6, 7]
